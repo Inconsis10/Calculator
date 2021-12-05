@@ -4,13 +4,19 @@
   box-sizing: border-box;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .container {
   height: 500px;
   width: 350px;
   background-color: #22252d;
   position: relative;
-  margin-left: 500px;
-  margin-top: 10px;
+  /* margin-left: 500px; */
+  margin-top: 20px;
   margin-bottom: 100px;
   border-radius: 20px;
   /* padding: 0.1px; Either Here or in header we will give padding of 0.1px to avoid margin collapse */
@@ -167,4 +173,21 @@
 }
 .button-layout.dark-theme {
   background-color: #9c3232;
+}
+
+/************** Media Query ******************/
+@media screen and (max-width: 300px) {
+  .container {
+    width: 250px;
+    height: 340px;
+  }
+}
+
+@media screen and ((min-width: 301px) and (max-width:350px)) {
+  .container {
+    width: 250px;
+    height: 390px;
+    margin-top: 5px;
+    margin-bottom: 50px;
+  }
 }
