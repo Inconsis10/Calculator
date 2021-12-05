@@ -1,0 +1,170 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 500px;
+  width: 350px;
+  background-color: #22252d;
+  position: relative;
+  margin-left: 500px;
+  margin-top: 10px;
+  margin-bottom: 100px;
+  border-radius: 20px;
+  /* padding: 0.1px; Either Here or in header we will give padding of 0.1px to avoid margin collapse */
+
+  color: #fff;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+
+.header {
+  padding: 0.1px;
+}
+
+.wifi {
+  height: 20px;
+  width: 20px;
+}
+
+.small-cont {
+  width: 140px;
+  height: 60px;
+  background-color: #2a2d37;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+}
+
+/* .container2 {
+  height: 200px;
+  width: 500px;
+  background-color: antiquewhite;
+} */
+
+.fa-sun,
+.fa-moon {
+  font-size: 1.4rem;
+}
+.fa-sun {
+  margin-left: 10px;
+}
+
+.fa-moon {
+  margin-left: 50px;
+}
+
+.line1 {
+  margin-top: 10px;
+  /* padding-top: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.time-box {
+  margin-left: 20px;
+}
+.network-box {
+  margin-right: 20px;
+}
+.fas,
+.far {
+  color: #fff;
+}
+
+.middle {
+  width: 100%;
+  height: 100px;
+  color: white;
+  margin-top: 30px;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+}
+
+.fa-times,
+.fa-divide {
+  color: #cb7379;
+}
+.arithmetic,
+.result {
+  /* margin-left: 220px; */
+  text-align: right;
+  height: 30px;
+}
+.result {
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
+.button-layout {
+  width: 100%;
+  height: 360px;
+  background-color: #2a2d37;
+  border-radius: 20px;
+  padding: 0.1px;
+}
+
+.btn {
+  background-color: #282b33;
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* text-align: center; */
+}
+.box1 {
+  margin-top: 20px;
+}
+.box2,
+.box3,
+.box4,
+.box5 {
+  margin-top: 7px;
+}
+
+.e1 {
+  transform: rotateY(180deg);
+}
+
+.eventButton {
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn:hover,
+.small-cont:hover {
+  background-color: #4f5155;
+}
+.btn.active {
+  background-color: #070808;
+}
+
+.dark-theme {
+  background-color: #222;
+  color: #e6e6e6;
+  /* .container {
+    background-color: blue;
+  } */
+}
+.far,
+.fas {
+  cursor: pointer;
+}
+.container.dark-theme {
+  background-color: #dd6969;
+}
+.button-layout.dark-theme {
+  background-color: #9c3232;
+}
