@@ -1,18 +1,14 @@
 let button = document.getElementsByClassName("eventButton"); // Always remember that document.getElementsByClassName gives HTML document list . So, to grab a particular class we have to use index(document.getElementsByClassName[index])
-// console.log(button);
 
 button = Array.from(button);
 button.forEach(item => {
     item.addEventListener('click', detectSymbol);
     // item.addEventListener('display',displaySymbol);
 });
-// console.log(button);
 
 function detectSymbol(e) {
     let a = e.target.innerHTML; // e is the event object that gives all the information about the object...
-    // console.log(a);
     displayExpression(e);
-    console.log(e.target.parentNode)
     e.target.parentNode.classList.add('active')
     setTimeout(() => {
         e.target.parentNode.classList.remove('active')
@@ -27,19 +23,19 @@ function displayExpression(e) {
     let b = document.getElementsByClassName("fill-it")[0];
     let c = document.getElementsByClassName("res-fill")[0];
     // let d = document.getElementsByClassName("fill-it");
-    console.log(b);
+
+    let emptyString = "";
 
     if (eqto > 0) {
         c.innerHTML = c.innerHTML.slice(1, c.innerHTML.length);
         b.innerHTML = c.innerHTML;
         c.innerHTML = "";
+        emptyString = "";
         eqto--;
 
     }
 
 
-    console.log(e.target.classList);
-    console.log(e.target.innerHTML);
 
 
     if (e.target.classList.length === 1) {
@@ -83,7 +79,7 @@ function displayExpression(e) {
     }
     else if (e.target.classList[1] == "equalto-sign") {
         c.innerHTML += e.target.innerHTML;
-        myfunction(b, count, c);
+        myfunction(b, count, c,emptyString);
         eqto++;
 
 
@@ -111,101 +107,38 @@ function displayExpression(e) {
 
 }
 
-function myfunction(b, count, c) {
-
-    // console.log(b);
+function myfunction(b, count, c,emptyString) {
 
 
+    console.log("hello");
 
     /* ASK ASHWINI ABOUT THIS
     */
     try {
-        c.innerHTML += eval(b.innerHTML.toString());
+        // console.log(emptyString);
+        // console.log("holla");
+        // console.log(b.innerHTML.toString());
+        //  let k = emptyString;
+        //  k= Number(k);
+
+        emptyString += eval(b.innerHTML.toString());
+
+         if( emptyString.length < 17){
+             c.innerHTML += emptyString;
+         }
+         else
+         {
+             c.innerHTML += "Out of Range";
+         }
+           
 
     }
-    catch (e) {
+    catch (err) {
+        console.log(err); // Here err is the error object that carries all information about what kind of error occured.. 
+        console.log("Dear Crush please talk");
         c.innerHTML += "Invalid Exp";
     }
 
-
-
-
-
-    // let i = 0, index;
-    // console.log(count);
-    // console.log(b.innerHTML);
-    // console.log(c.innerHTML);
-
-    // while (b.innerHTML[i] != " ") {
-    //     i++;
-    // }
-    // index = i;
-    // let z1 = b.innerHTML.slice(0, index);
-    // console.log(typeof (z1));
-    // console.log(z1);
-    // let j = b.innerHTML.length - 1;
-    // while (b.innerHTML[j] != " ") {
-    //     j--;
-
-    // }
-    // let z2 = b.innerHTML.slice(j + 1, b.innerHTML.length);
-    // console.log(z2);
-    // console.log(typeof (z2));
-    // let k1 = Number(z1);
-    // let k2 = Number(z2);
-    // console.log(k1);
-    // console.log(typeof (k1));
-    // console.log(k2);
-    // console.log(typeof (k2));
-
-    // switch (count) {
-    //     case 1:
-    //         let m1 = (k1 + k2);
-    //         console.log(m1);
-    //         console.log(typeof (m1));
-    //         let addRes = m1.toString();
-    //         console.log(addRes);
-    //         console.log(typeof (addRes));
-    //         c.innerHTML += addRes;
-    //         break;
-    //     case 2:
-    //         let m2 = (k1 - k2);
-    //         let subRes = m2.toString();
-    //         c.innerHTML += subRes;
-    //         break;
-    //     case 3:
-    //         let m3 = k1 * k2;
-    //         let multRes = m3.toString();
-    //         c.innerHTML += multRes;
-    //         break;
-
-    //     case 4:
-    //         let m4 = k1 / k2;
-    //         let divRes = m4.toString();
-    //         c.innerHTML += divRes;
-    //         break;
-
-    // }
-
-
-
-
-
-    // var z1 = "";
-    // let stringArray = Array.from(b.innerHTML);
-
-    // console.log("Inner HTML:",stringArray);
-    // console.log(typeof(stringArray));
-    // var i=0;
-    // var length = b.innerHTML.length;
-    // for( i= 0; i<length ; i++)
-    //   z1 += b.innerHTML[i];
-
-    // console.log(z1);
-    // console.log(typeof(z1));
-    // var k1 = parseInt(z1);
-    // console.log(k1);
-    // console.log(typeof(k1));
 
 
 }
@@ -216,13 +149,11 @@ var lightButton = document.getElementsByClassName("far fa-sun")[0];
 lightButton.addEventListener('click', lightFunction);
 
 function lightFunction() {
-    console.log("sun was clicked")
     if (Array.from(document.body.classList).includes('dark-theme')) {
         document.body.classList.toggle("dark-theme");
         container.classList.toggle("dark-theme")
         buttonLayout.classList.toggle("dark-theme");
     }
-    console.log(document.body.classList);
 }
 
 
@@ -230,61 +161,28 @@ var darkButton = document.getElementsByClassName("fas fa-moon")[0];
 darkButton.addEventListener('click', darkFunction);
 
 function darkFunction() {
-    console.log("moon was clicked");
     if (Array.from(document.body.classList).includes('dark-theme'))
         return;
     document.body.classList.toggle("dark-theme");
     container.classList.toggle("dark-theme");
     buttonLayout.classList.toggle("dark-theme");
 
-    console.log(document.body.classList);
 }
 
 
-// if(count === 0)
-// {
-//     var i=0;
-//     var z = "";
-//     b = Array.from(b);
-//     b.forEach(item => {
-//          console.log(item);
-//     });
-//     while(b[i] != " ")
-//     {
-//         z += b[i];
-//         i++;
-//     }
-//     Number("z");
-//     console.log(z); 
-// }
-
-// let keyBoard = document.getElementsByClassName("fill-it")[0];
-let keyBoard = document.getElementsByClassName('fill-it')[0];
-console.log(keyBoard);
-// let keyBooard = document.getElementsByClassName('fill-it')[0];
-// console.log(keyBooard);
-// console.log(keyBooard.innerHTML);
-
 window.addEventListener('keydown', anyKey);
-let pressed = 0;
 
-window.addEventListener('keydown',(e)=>{
-    console.log("keydown",e);
-})
-window.addEventListener('keyup',(e)=>{
-    console.log("keyup",e);
-})
+
+
 
 function anyKey(e) {
+    console.log(e);
+    console.log(e.target);
     let char = e.char || e.charCode || e.which; 
 
     let s = e.key;
     let clickedButton = document.getElementsByClassName("eventButton");
     for (var i = 0; i < clickedButton.length; i++) {
-        // console.log( 'helloo fuck' ,clickedButton[i].textContent.charCodeAt());
-        // console.log( 'helloo fuck' ,clickedButton[i].textContent);
-        // console.log( 'helloo fuck char' ,char);
-        // console.log( 'helloo fuck char' ,s);
 
 
 
@@ -321,6 +219,11 @@ function anyKey(e) {
             document.getElementsByClassName("AC")[0].click();
             break;
         }
+        else if( s === 'Enter')
+        {
+            document.getElementsByClassName("equalto-sign")[0].click();
+            break;
+        }
         // else if( char === 190){
         //     document.getElementsByClassName("eventButton")[18].click();
         //     break;
@@ -331,15 +234,7 @@ function anyKey(e) {
         
 
     }
-    // let b = document.getElementsByClassName('fill-it')[0];
-    // let target = e.currentTarget;
-    // let tag = target.tagName;
-    // let char = e.char || e.charcode || e.which;
-
-    // console.log(target,tag,char);
-    //  let s = String.fromCharCode(char);
-    //  console.log(s);
-    // b.innerHTML += s;
+    
 }
 
 
